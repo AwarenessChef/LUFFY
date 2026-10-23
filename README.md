@@ -4,88 +4,55 @@
 
 ## About LUFFY
 
-LUFFY is a reinforcement learning framework that bridges the gap between zero-RL and imitation learning by incorporating off-policy guidance. This repository contains the official implementation of our paper.
+LUFFY is a reinforcement learning framework that bridges the gap between zero-RL and imitation learning by incorporating off-policy reasoning traces into the training process. This repository contains the core implementation and development work.
 
-### Key Features
+## 🔧 Development Status
 
-- **Off-Policy Guidance**: Leverages off-policy data to improve on-policy RL training
-- **Scalable Training**: Built on verl for efficient distributed training
-- **Multiple Environments**: Support for math reasoning tasks
-- **Comprehensive Evaluation**: Integrated evaluation scripts and benchmarks
+This repository is under active development. Many features are currently being implemented or need refactoring.
 
-## 📊 Results
+## 🚀 Quick Start
 
-LUFFY achieves state-of-the-art performance on mathematical reasoning benchmarks:
-
-- **AIME 2024**: Competitive results across model scales
-- **MATH-500**: Strong performance with off-policy guidance
-- **OlympiadBench**: Robust generalization
-
-## 🚀 Getting Started
-
-### Installation
+⚠️ **Note**: This development version has incomplete implementations. Many features are marked as TODO and need to be completed before production use.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Eddings-Lab/LUFFY.git
+git clone <repository-url>
 cd LUFFY
 
 # Install dependencies
-pip install -e .
-```
+pip install -r luffy/requirements.txt
 
-### Data Preparation
-
-```bash
-# Prepare training data
-python data/prepare_train.py
-python data/prepare_sft.py
-```
-
-### Training
-
-```bash
-# Run RL training with off-policy guidance
-bash exp_scripts/run_luffy.sh
-```
-
-### Evaluation
-
-```bash
-# Run evaluation
-bash eval_scripts/run_eval.sh
+# Note: Some functionality is incomplete - check TODO list below for details
 ```
 
 ## 📁 Repository Structure
 
 ```
 LUFFY/
-├── luffy/                  # Core package
-│   ├── deepscaler/        # DeepScaler reward functions
-│   ├── verl/              # verl training framework
-│   └── scripts/           # Data preparation scripts
-├── data/                  # Data preparation utilities
+├── luffy/                 # Core framework
+│   ├── deepscaler/        # Scaling utilities (⚠️ API integration needed)
+│   ├── verl/              # RL training components (⚠️ Some features incomplete)
+│   └── ...
+├── data/                  # Training data and scripts
+├── eval_scripts/          # Evaluation utilities
 ├── exp_scripts/           # Experiment scripts
-├── eval_scripts/          # Evaluation scripts
-└── figures/               # Figures and visualizations
+└── README.md              # This file
 ```
 
-## 🔧 Development
+## ⚠️ Development Notes
 
-This is the development branch. For stable releases, please use the main branch.
+- This is a **development version** with incomplete implementations
+- Many functions contain TODO markers indicating pending work
+- API integrations (OpenAI, Gemini) are currently placeholder implementations
+- FSDP and distributed training features need completion
 
-### Roadmap
 
-- [x] Initial release of LUFFY framework
-- [x] DeepScaler reward integration
-- [x] Multi-model support (Qwen, LLaMA)
-- [ ] Advanced off-policy guidance strategies
-- [ ] Extended benchmark coverage
-- [ ] Performance optimizations
+### 🔴 High Priority TODOs
 
-### Contributing
-
-We welcome contributions! Please see our contributing guidelines for details.
+- **API Integration**: OpenAI and Gemini API implementations need completion
+- **Reward System**: Parallel processing and validation for reward computation  
+- **FSDP Training**: Model loading and distributed training setup
+- **Data Processing**: Batch dimension operations and tensor reshaping
 
 ### 📝 Complete TODO List
 
@@ -312,10 +279,3 @@ We welcome contributions! Please see our contributing guidelines for details.
 3. Test your implementation
 4. Update this README when TODOs are completed
 
-## 📜 License
-
-This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
-
-## 📧 Contact
-
-For questions and feedback, please open an issue on GitHub.
